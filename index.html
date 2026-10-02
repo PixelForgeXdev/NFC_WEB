@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="PixelForgeX.dev — Web Development Studio. We ship products, not proposals.">
+  <title>PixelForgeX.dev — Connect</title>
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #101010;
+      --panel2: #151515;
+      --text: #f5f5f2;
+      --muted: #9b9b96;
+      --line: #292925;
+      --accent: #f28b35;
+      --accent2: #ffb26b;
+      --glow: rgba(242, 139, 53, .16);
+      --max: 520px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(242, 139, 53, .16), transparent 34%),
+        linear-gradient(180deg, #0b0b0b 0%, var(--bg) 42%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 3px
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max);
+      padding: 20px 18px 34px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 13px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 16px;
+      background: rgba(16, 16, 16, .72);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, .18);
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      flex: none;
+      display: block;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 760;
+      letter-spacing: -.03em
+    }
+
+    .brand-name span {
+      color: var(--accent)
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 2px;
+      color: #7f7f7a;
+      font-size: 9px;
+      letter-spacing: .19em;
+      font-weight: 650
+    }
+
+    .hero {
+      text-align: center;
+      padding: 48px 16px 38px
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(242, 139, 53, .22);
+      border-radius: 999px;
+      background: rgba(242, 139, 53, .06)
+    }
+
+    h1 {
+      margin: 0 auto;
+      font-size: clamp(31px, 8vw, 46px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      max-width: 470px
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 410px;
+      margin: 18px auto 0
+    }
+
+    .primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin: 25px auto 0;
+      padding: 15px 19px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #0b0b0b;
+      font-weight: 800;
+      box-shadow: 0 10px 30px var(--glow);
+      transition: .2s transform, .2s filter, .2s box-shadow;
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 14px 34px rgba(242, 139, 53, .24)
+    }
+
+    .arrow {
+      font-size: 17px
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 12px;
+      color: #6f6f6a;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 750;
+    }
+
+    .section-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, var(--line), transparent)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .tile {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(24, 24, 22, .9), #0d0d0d);
+      border-radius: 14px;
+      padding: 17px 15px;
+      min-height: 100px;
+      box-shadow: inset 0 1px rgba(255, 255, 255, .035);
+      transition: .2s transform, .2s border-color, .2s background
+    }
+
+    .tile:hover {
+      transform: translateY(-2px);
+      border-color: #4a4942;
+      background: linear-gradient(145deg, #1d1c19, #101010)
+    }
+
+    .tile b {
+      font-size: 13px;
+      display: block;
+      margin-bottom: 6px
+    }
+
+    .tile span {
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--muted)
+    }
+
+    .links {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      background: linear-gradient(100deg, var(--panel), #0d0d0d);
+      border-radius: 14px;
+      padding: 14px 15px;
+      min-height: 58px;
+      transition: .2s border-color, .2s transform, .2s background, .2s box-shadow;
+    }
+
+    .link:hover {
+      border-color: #44443e;
+      background: var(--panel2);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .2)
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 11px
+    }
+
+    .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(242, 139, 53, .08);
+      border: 1px solid rgba(242, 139, 53, .14);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 12px
+    }
+
+    .link b {
+      font-size: 12px
+    }
+
+    .link small {
+      display: block;
+      color: var(--muted);
+      margin-top: 2px;
+      font-size: 10px
+    }
+
+    .chev {
+      color: #686861;
+      font-size: 18px
+    }
+
+    .note {
+      margin: 22px 0 0;
+      padding: 15px 16px;
+      border: 1px solid rgba(242, 139, 53, .14);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: linear-gradient(100deg, rgba(242, 139, 53, .08), rgba(242, 139, 53, .02));
+      color: #9d9d97;
+      font-size: 10px;
+      line-height: 1.6
+    }
+
+    .save-contact {
+      width: 100%;
+      margin-top: 14px;
+      padding: 13px 16px;
+      border: 1px solid rgba(242, 139, 53, .35);
+      border-radius: 12px;
+      background: rgba(242, 139, 53, .08);
+      color: var(--accent2);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .2s transform, .2s background, .2s border-color
+    }
+
+    .save-contact:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: rgba(242, 139, 53, .15)
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      text-align: center;
+      padding: 30px 0 6px;
+      color: #555550;
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .16em
+    }
+
+    footer strong {
+      color: var(--accent);
+      font-size: 13px;
+      line-height: 1
+    }
+
+    @media (min-width:600px) {
+      .page {
+        padding-top: 48px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="brand">
+      <img class="mark" src="pixelforgex.dev-removebg-preview.png" alt="PixelForgeX logo">
+      <div>
+        <div class="brand-name">PixelForge<span>X</span>.dev</div>
+        <span class="brand-sub">WEB DEVELOPMENT STUDIO</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">// NFC CONNECTED</div>
+      <h1>We ship <em>products</em>,<br>not proposals.</h1>
+      <p class="lead">
+        Websites, apps and digital products built to launch, scale and actually get used.
+      </p>
+      <a class="primary" href="#contact">START A PROJECT <span class="arrow">↗</span></a>
+    </section>
+
+    <div class="section-label">What we forge</div>
+    <section class="grid">
+      <div class="tile"><b>Web Development</b><span>Modern websites, dashboards & web apps.</span></div>
+      <div class="tile"><b>Mobile Apps</b><span>iOS & Android products from idea to launch.</span></div>
+      <div class="tile"><b>SaaS & APIs</b><span>Scalable products, integrations & backend systems.</span></div>
+      <div class="tile"><b>Digital Marketing</b><span>SEO, social media &amp; campaigns that drive growth.</span></div>
+    </section>
+
+    <div class="section-label" id="contact">Connect</div>
+    <section class="links">
+      <a class="link" href="https://wa.me/916353444388" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <span class="link-left"><span class="icon">WA</span><span><b>WhatsApp</b><small>Let's talk about your
+              project</small></span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="link" href="tel:+916353444388" aria-label="Call">
+        <span class="link-left"><span class="icon">☎</span><span><b>Call</b><small>Speak directly with the
+              team</small></span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="link" href="mailto:pixelforgex.dev@gmail.com" aria-label="Email">
+        <span class="link-left"><span
+            class="icon">@</span><span><b>Email</b><small>pixelforgex.dev@gmail.com</small></span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="link" href="https://pixelforgex.vercel.app/" target="_blank" rel="noopener" aria-label="Website">
+        <span class="link-left"><span class="icon">↗</span><span><b>View
+              Website</b><small>pixelforgex.vercel.app</small></span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="link"
+        href="https://www.instagram.com/pixelforgex.dev?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw=="
+        target="_blank" rel="noopener" aria-label="Instagram">
+        <span class="link-left"><span class="icon">IG</span><span><b>Instagram</b><small>See what we're
+              building</small></span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="link" href="https://pixelforgex.vercel.app/web-app#portfolio" target="_blank" rel="noopener"
+        aria-label="Portfolio">
+        <span class="link-left"><span class="icon">PF</span><span><b>Portfolio</b><small>Selected work &
+              projects</small></span></span>
+        <span class="chev">›</span>
+      </a>
+    </section>
+
+    <div class="note">
+      <strong>// FORGED WITH PIXELFORGX</strong><br>
+      Built for a quick tap. One page. Every important way to reach us.
+    </div>
+
+    <button class="save-contact" type="button" id="save-contact">+ Add to Contacts</button>
+
+    <footer><span>BUILD</span><strong>•</strong><span>LAUNCH</span><strong>•</strong><span>GROW</span></footer>
+  </main>
+  <script>
+    document.getElementById("save-contact").addEventListener("click", function () {
+      const contact = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "FN:PixelForgeX.dev",
+        "ORG:PixelForgeX.dev",
+        "TEL;TYPE=WORK,VOICE:+916353444388",
+        "EMAIL:pixelforgex.dev@gmail.com",
+        "URL:https://pixelforgex.vercel.app/",
+        "END:VCARD"
+      ].join("\r\n");
+      const file = new Blob([contact], { type: "text/vcard;charset=utf-8" });
+      const contactFile = new File([file], "pixelforgex-contact.vcf", {
+        type: "text/vcard"
+      });
+
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [contactFile] })) {
+        navigator.share({
+          title: "PixelForgeX Contact",
+          text: "Save the PixelForgeX contact",
+          files: [contactFile]
+        }).catch(function (error) {
+          if (error.name !== "AbortError") {
+            downloadContact();
+          }
+        });
+        return;
+      }
+
+      downloadContact();
+
+      function downloadContact() {
+        const download = document.createElement("a");
+        download.href = URL.createObjectURL(file);
+        download.download = "pixelforgex-contact.vcf";
+        download.click();
+        URL.revokeObjectURL(download.href);
+      }
+    });
+  </script>
+</body>
+
+</html>
